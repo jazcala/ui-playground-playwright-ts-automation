@@ -1,0 +1,23 @@
+import { test as base } from '@playwright/test';
+import { LandingPage } from '../pages/landingPage';
+import { DynamicIdPage } from '../pages/dynamicIdPage';
+
+type MyPageObjects = {
+  landingPage: LandingPage;
+  dynamicIdPage: DynamicIdPage;
+}
+
+export const test = base.extend<MyPageObjects>({
+
+  landingPage: async ({ page }, use) => {
+    const landingPage = new LandingPage(page);
+    await use(landingPage);
+  },
+  dynamicIdPage: async ({ page }, use) => {
+    const dynamicIdPage = new DynamicIdPage(page);
+    await use(dynamicIdPage);
+  }
+
+});
+
+export { expect } from '@playwright/test';

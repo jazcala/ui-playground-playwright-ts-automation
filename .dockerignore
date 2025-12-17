@@ -1,0 +1,21 @@
+# 1. Dependencies
+node_modules/
+
+# 2. Test Outputs
+test-results/
+playwright-report/
+blob-report/
+test-results/
+
+# 3. Environment Secrets
+.env
+
+# 4. Version Control & IDEs
+.git/
+.github/
+.vscode/
+.idea/
+
+# 5. OS Metadata
+.DS_Store
+Thumbs.db
