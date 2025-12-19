@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from './basePage';
-import { DynamicIdPage } from './dynamicIdPage';
+import { BasePage } from './base.page';
+import { DynamicIdPage } from './dynamic-id.page';
 
 export class LandingPage extends BasePage {
 

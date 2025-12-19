@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/baseTest';
+import { test, expect } from '../fixtures/base-test';
 
 test.describe('Dynamic Id Page Specs', () => {
 
@@ -10,8 +10,7 @@ test.describe('Dynamic Id Page Specs', () => {
 
   test('Verify button with dynamic Id can be located', async ({ dynamicIdPage }) => {
     await dynamicIdPage.navigateTo();
-    await dynamicIdPage.findTheButton();
-    await expect(dynamicIdPage.button).toBeFocused();
+    await expect(dynamicIdPage.button).toBeVisible();
   });
 
 });

@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test';
-import { LandingPage } from '../pages/landingPage';
-import { DynamicIdPage } from '../pages/dynamicIdPage';
+import { LandingPage } from '../pages/landing.page';
+import { DynamicIdPage } from '../pages/dynamic-id.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;

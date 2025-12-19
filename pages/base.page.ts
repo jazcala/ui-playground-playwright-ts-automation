@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { URL_PATH_CONTSTANTS } from '../utils/testConstants';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 
 export class BasePage {
 
