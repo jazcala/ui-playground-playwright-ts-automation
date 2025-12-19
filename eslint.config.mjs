@@ -1,5 +1,6 @@
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import checkFile from "eslint-plugin-check-file";
 
 export default [
   {
@@ -14,6 +15,7 @@ export default [
 
     plugins: {
       "@typescript-eslint": tsPlugin,
+      "check-file": checkFile,
     },
 
     rules: {
@@ -69,6 +71,24 @@ export default [
         {
           selector: ["variable", "parameter"],
           format: ["camelCase"],
+        },
+      ],
+
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          // Ensures all TS files in these folders are kebab-case
+          "**/*.{ts,tsx}": "KEBAB_CASE",
+        },
+        {
+          ignoreMiddleExtensions: true,
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          // Ensures folder names are kebab-case
+          "src/**/": "KEBAB_CASE",
         },
       ],
     },
