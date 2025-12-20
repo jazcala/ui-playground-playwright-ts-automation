@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from './basePage';
-import { URL_PATH_CONTSTANTS } from '../utils/testConstants';
+import { BasePage } from './base.page';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 
 export class DynamicIdPage extends BasePage {
 
@@ -12,10 +12,6 @@ export class DynamicIdPage extends BasePage {
     super(page);
     this.title = page.getByRole('heading', { name: 'Dynamic ID' });
     this.button = page.getByRole('button', { name: "Button with Dynamic ID" });
-  }
-
-  async findTheButton(): Promise<void> {
-    await this.button.click();
   }
 
 }

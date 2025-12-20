@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/baseTest';
+import { test, expect } from '../fixtures/base-test';
 
 test.describe("Landing Page Specs", () => {
 
