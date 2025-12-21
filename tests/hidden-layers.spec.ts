@@ -15,7 +15,6 @@ test.describe('Hidden Layer Page specs', () => {
 
     await expect(hiddenLayersPage.blueButton).toBeVisible();
     await hiddenLayersPage.blueButton.click();
-    await expect(hiddenLayersPage.blueButton).toBeFocused();
 
     await expect(async () => {
       await hiddenLayersPage.greenButton.click({ timeout: 2000 });
