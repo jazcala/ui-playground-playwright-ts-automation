@@ -5,6 +5,7 @@ import { ClassAttributePage } from './class-attribute.page';
 import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 import { HiddenLayersPage } from './hidden-layers.page';
 import { LoadDelayPage } from './load-delay.page';
+import { AjaxDataPage } from './ajax-data.page';
 
 export class LandingPage extends BasePage {
 
@@ -45,6 +46,10 @@ export class LandingPage extends BasePage {
   async mapsToLoadDelay(): Promise<LoadDelayPage> {
 
     return this.navigateToChallenge('Load Delay', URL_PATH_CONTSTANTS.LOAD_DELAY, LoadDelayPage);
+  }
+
+  async mapsToAjaxData(): Promise<AjaxDataPage> {
+    return this.navigateToChallenge('AJAX DATA', URL_PATH_CONTSTANTS.AJAX_DATA, AjaxDataPage);
   }
 
 }
