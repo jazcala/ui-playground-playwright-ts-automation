@@ -1,14 +1,16 @@
 import { test, expect } from '../fixtures/base-test';
 
 test.describe('Hidden Layer Page specs', () => {
+  test.beforeEach(async ({ hiddenLayersPage }) => {
+    await hiddenLayersPage.navigateTo();
+  });
 
   test('Verify page title is displayed', async ({ hiddenLayersPage }) => {
-    await hiddenLayersPage.navigateTo();
     await expect(hiddenLayersPage.title).toBeVisible();
   });
 
   test('Verify green button is covered by blue button after click', async ({ hiddenLayersPage }) => {
-    await hiddenLayersPage.navigateTo();
+
     await expect(hiddenLayersPage.greenButton).toBeVisible();
     await hiddenLayersPage.greenButton.click();
 
