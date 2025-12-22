@@ -4,43 +4,47 @@ import { DynamicIdPage } from './dynamic-id.page';
 import { ClassAttributePage } from './class-attribute.page';
 import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 import { HiddenLayersPage } from './hidden-layers.page';
+import { LoadDelayPage } from './load-delay.page';
 
 export class LandingPage extends BasePage {
 
   readonly title: Locator;
-  readonly dynamicIdLink: Locator;
-  readonly classAttributeLink: Locator;
-  readonly hiddenLayersLink: Locator;
 
   constructor(page: Page) {
     super(page);
     this.title = page.getByRole('heading', { name: 'UI Test Automation Playground' });
-    this.dynamicIdLink = page.getByRole('link', { name: 'Dynamic ID' });
-    this.classAttributeLink = page.getByRole('link', { name: 'Class Attribute' });
-    this.hiddenLayersLink = page.getByRole('link', { name: 'Hidden Layers' });
+  }
+
+  private async navigateToChallenge<T extends BasePage>(
+    linkName: string,
+    expectedUrl: string,
+    pageClass: new (page: Page) => T
+
+  ): Promise<T> {
+    await this.page.getByRole('link', { name: linkName }).click();
+    await this.page.waitForURL(expectedUrl);
+
+    return new pageClass(this.page);
   }
 
   async mapsToDynamicId(): Promise<DynamicIdPage> {
-    await this.dynamicIdLink.click();
-    await this.page.waitForURL(URL_PATH_CONTSTANTS.DYNAMIC_ID);
 
-    return new DynamicIdPage(this.page);
-
+    return this.navigateToChallenge('Dynamic ID', URL_PATH_CONTSTANTS.DYNAMIC_ID, DynamicIdPage);
   }
 
   async mapsToClassAttributePage(): Promise<ClassAttributePage> {
-    await this.classAttributeLink.click();
-    await this.page.waitForURL(URL_PATH_CONTSTANTS.CLASS_ATTRIBUTE);
 
-    return new ClassAttributePage(this.page);
-
+    return this.navigateToChallenge('Class Attribute', URL_PATH_CONTSTANTS.CLASS_ATTRIBUTE, ClassAttributePage);
   }
 
   async mapsToHiddenLayersPage(): Promise<HiddenLayersPage> {
-    await this.hiddenLayersLink.click();
-    await this.page.waitForURL(URL_PATH_CONTSTANTS.HIDDEN_LAYERS);
 
-    return new HiddenLayersPage(this.page);
+    return this.navigateToChallenge('Hidden Layers', URL_PATH_CONTSTANTS.HIDDEN_LAYERS, HiddenLayersPage);
+  }
+
+  async mapsToLoadDelay(): Promise<LoadDelayPage> {
+
+    return this.navigateToChallenge('Load Delay', URL_PATH_CONTSTANTS.LOAD_DELAY, LoadDelayPage);
   }
 
 }

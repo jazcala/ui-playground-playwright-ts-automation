@@ -6,7 +6,7 @@ export interface UrlPathConstants {
   readonly DYNAMIC_ID: string;
   readonly CLASS_ATTRIBUTE: string;
   readonly HIDDEN_LAYERS: string;
-
+  readonly LOAD_DELAY: string;
 }
 
 export const URL_PATH_CONTSTANTS: UrlPathConstants = {
@@ -14,4 +14,5 @@ export const URL_PATH_CONTSTANTS: UrlPathConstants = {
   DYNAMIC_ID: '/dynamicid',
   CLASS_ATTRIBUTE: '/classattr',
   HIDDEN_LAYERS: '/hiddenlayers',
+  LOAD_DELAY: '/loaddelay',
 };

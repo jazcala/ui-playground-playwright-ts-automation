@@ -2,9 +2,8 @@ import { test, expect } from '../fixtures/base-test';
 
 test.describe('Dynamic Id Page Specs', () => {
 
-  test('User can navigate from Home to Dynamic ID page', async ({ landingPage }) => {
-    await landingPage.navigateTo();
-    const dynamicIdPage = await landingPage.mapsToDynamicId();
+  test('Verify page title is displayed', async ({ dynamicIdPage }) => {
+    await dynamicIdPage.navigateTo();
     await expect(dynamicIdPage.title).toBeVisible();
   });
 
