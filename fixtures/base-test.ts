@@ -4,6 +4,7 @@ import { DynamicIdPage } from '../pages/dynamic-id.page';
 import { ClassAttributePage } from '../pages/class-attribute.page';
 import { HiddenLayersPage } from '../pages/hidden-layers.page';
 import { LoadDelayPage } from '../pages/load-delay.page';
+import { AjaxDataPage } from '../pages/ajax-data.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;
@@ -11,6 +12,7 @@ type MyPageObjects = {
   classAttributePage: ClassAttributePage;
   hiddenLayersPage: HiddenLayersPage;
   loadDelaysPage: LoadDelayPage;
+  ajaxDataPage: AjaxDataPage;
 }
 
 export const test = base.extend<MyPageObjects>({
@@ -34,8 +36,11 @@ export const test = base.extend<MyPageObjects>({
   loadDelaysPage: async ({ page }, use) => {
     const loadDelaysPage = new LoadDelayPage(page);
     await use(loadDelaysPage);
-  }
-
+  },
+  ajaxDataPage: async ({ page }, use) => {
+    const ajaxDataPage = new AjaxDataPage(page);
+    await use(ajaxDataPage);
+  },
 });
 
 export { expect } from '@playwright/test';

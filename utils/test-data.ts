@@ -24,4 +24,8 @@ export const NAVIGATION_MAP: NavigationMap[] = [
     name: 'Load Delay',
     action: 'mapsToLoadDelay'
   },
+  {
+    name: 'AJAX Data',
+    action: 'mapsToAjaxData'
+  }
 ];
