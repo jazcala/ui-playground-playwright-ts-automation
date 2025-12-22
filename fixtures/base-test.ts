@@ -3,12 +3,14 @@ import { LandingPage } from '../pages/landing.page';
 import { DynamicIdPage } from '../pages/dynamic-id.page';
 import { ClassAttributePage } from '../pages/class-attribute.page';
 import { HiddenLayersPage } from '../pages/hidden-layers.page';
+import { LoadDelayPage } from '../pages/load-delay.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;
   dynamicIdPage: DynamicIdPage;
   classAttributePage: ClassAttributePage;
   hiddenLayersPage: HiddenLayersPage;
+  loadDelaysPage: LoadDelayPage;
 }
 
 export const test = base.extend<MyPageObjects>({
@@ -28,6 +30,10 @@ export const test = base.extend<MyPageObjects>({
   hiddenLayersPage: async ({ page }, use) => {
     const hiddenLayersPage = new HiddenLayersPage(page);
     await use(hiddenLayersPage);
+  },
+  loadDelaysPage: async ({ page }, use) => {
+    const loadDelaysPage = new LoadDelayPage(page);
+    await use(loadDelaysPage);
   }
 
 });

@@ -1,15 +1,16 @@
 import { test, expect } from '../fixtures/base-test';
 
 test.describe('Hidden Layer Page specs', () => {
+  test.beforeEach(async ({ hiddenLayersPage }) => {
+    await hiddenLayersPage.navigateTo();
+  });
 
-  test('User can navigate from Home to Hidden Layer page', async ({ landingPage }) => {
-    await landingPage.navigateTo();
-    const hiddenLayersPage = await landingPage.mapsToHiddenLayersPage();
+  test('Verify page title is displayed', async ({ hiddenLayersPage }) => {
     await expect(hiddenLayersPage.title).toBeVisible();
   });
 
   test('Verify green button is covered by blue button after click', async ({ hiddenLayersPage }) => {
-    await hiddenLayersPage.navigateTo();
+
     await expect(hiddenLayersPage.greenButton).toBeVisible();
     await hiddenLayersPage.greenButton.click();
 
@@ -21,10 +22,5 @@ test.describe('Hidden Layer Page specs', () => {
     }).rejects.toThrow();
 
   });
-
-  // test('Verify green button is no longer located after being clicked', async ({ hiddenLayersPage }) => {
-  //   await hiddenLayersPage.navigateTo();
-
-  // });
 
 });
