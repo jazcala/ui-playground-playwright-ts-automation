@@ -6,10 +6,20 @@ export class TextInputPage extends BasePage {
 
   readonly title: Locator;
   protected readonly path = URL_PATH_CONTSTANTS.TEXT_INPUT;
+  readonly input: Locator;
+  readonly button: Locator;
 
   constructor(page: Page) {
     super(page);
     this.title = page.getByRole('heading', { name: 'Text Input' });
+    this.input = page.locator('#newButtonName');
+    this.button = page.locator('#updatingButton');
+
+  }
+
+  async setButtonNewName(newName: string): Promise<void> {
+    await this.input.fill(newName);
+    await this.button.click();
   }
 
 }

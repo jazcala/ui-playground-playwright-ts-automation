@@ -7,6 +7,7 @@ import { LoadDelayPage } from '../pages/load-delay.page';
 import { AjaxDataPage } from '../pages/ajax-data.page';
 import { ClientSideDelayPage } from '../pages/client-side-delay.page';
 import { ClickPage } from '../pages/click.page';
+import { TextInputPage } from '../pages/text-input.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;
@@ -17,6 +18,7 @@ type MyPageObjects = {
   ajaxDataPage: AjaxDataPage;
   clientSideDelayPage: ClientSideDelayPage;
   clickPage: ClickPage;
+  textInputPage: TextInputPage;
 }
 
 export const test = base.extend<MyPageObjects>({
@@ -53,6 +55,10 @@ export const test = base.extend<MyPageObjects>({
     const clickPage = new ClickPage(page);
     await use(clickPage);
   },
+  textInputPage: async ({ page }, use) => {
+    const textInputPage = new TextInputPage(page);
+    await use(textInputPage);
+  }
 });
 
 export { expect } from '@playwright/test';
