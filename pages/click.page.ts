@@ -6,10 +6,12 @@ export class ClickPage extends BasePage {
 
   readonly title: Locator;
   protected readonly path = URL_PATH_CONTSTANTS.CLICK;
+  readonly badButton: Locator;
 
   constructor(page: Page) {
     super(page);
     this.title = page.getByRole('heading', { name: 'Click' });
+    this.badButton = page.getByRole('button', { name: 'Button That Ignores DOM Click' });
   }
 
 }
