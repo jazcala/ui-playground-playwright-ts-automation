@@ -25,7 +25,7 @@ export interface UrlPathConstants {
   readonly FILE_UPLOAD: string;
   readonly ANIMATED_BUTTON: string;
   readonly DISABLED_INPUT: string;
-  readonly AUT0_WAIT: string;
+  readonly AUTO_WAIT: string;
 }
 
 export const URL_PATH_CONTSTANTS: UrlPathConstants = {
@@ -52,5 +52,5 @@ export const URL_PATH_CONTSTANTS: UrlPathConstants = {
   FILE_UPLOAD: '/upload',
   ANIMATED_BUTTON: '/animation',
   DISABLED_INPUT: '/disabledinput',
-  AUT0_WAIT: '/autowait',
+  AUTO_WAIT: '/autowait',
 };
