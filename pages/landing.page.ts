@@ -139,7 +139,7 @@ export class LandingPage extends BasePage {
   }
 
   async mapsToAutoWait(): Promise<AutoWaitPage> {
-    return this.navigateToChallenge('Auto Wait', URL_PATH_CONTSTANTS.AUT0_WAIT, AutoWaitPage);
+    return this.navigateToChallenge('Auto Wait', URL_PATH_CONTSTANTS.AUTO_WAIT, AutoWaitPage);
   }
 
 }

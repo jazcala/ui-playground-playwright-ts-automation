@@ -5,7 +5,7 @@ import { URL_PATH_CONTSTANTS } from "../utils/test-constants";
 export class AutoWaitPage extends BasePage {
 
   readonly title: Locator;
-  protected readonly path = URL_PATH_CONTSTANTS.AUT0_WAIT;
+  protected readonly path = URL_PATH_CONTSTANTS.AUTO_WAIT;
 
   constructor(page: Page) {
     super(page);
