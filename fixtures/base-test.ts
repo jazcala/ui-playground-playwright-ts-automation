@@ -8,6 +8,7 @@ import { AjaxDataPage } from '../pages/ajax-data.page';
 import { ClientSideDelayPage } from '../pages/client-side-delay.page';
 import { ClickPage } from '../pages/click.page';
 import { TextInputPage } from '../pages/text-input.page';
+import { ScrollbarsPage } from '../pages/scrollbars.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;
@@ -19,6 +20,7 @@ type MyPageObjects = {
   clientSideDelayPage: ClientSideDelayPage;
   clickPage: ClickPage;
   textInputPage: TextInputPage;
+  scrollbarsPage: ScrollbarsPage;
 }
 
 export const test = base.extend<MyPageObjects>({
@@ -58,6 +60,10 @@ export const test = base.extend<MyPageObjects>({
   textInputPage: async ({ page }, use) => {
     const textInputPage = new TextInputPage(page);
     await use(textInputPage);
+  },
+  scrollbarsPage: async ({ page }, use) => {
+    const scrollbarsPage = new ScrollbarsPage(page);
+    await use(scrollbarsPage);
   }
 });
 
