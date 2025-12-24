@@ -9,6 +9,7 @@ import { ClientSideDelayPage } from '../pages/client-side-delay.page';
 import { ClickPage } from '../pages/click.page';
 import { TextInputPage } from '../pages/text-input.page';
 import { ScrollbarsPage } from '../pages/scrollbars.page';
+import { DynamicTablePage } from '../pages/dynamic-table.page';
 
 type MyPageObjects = {
   landingPage: LandingPage;
@@ -21,6 +22,7 @@ type MyPageObjects = {
   clickPage: ClickPage;
   textInputPage: TextInputPage;
   scrollbarsPage: ScrollbarsPage;
+  dynamicTablePage: DynamicTablePage;
 }
 
 export const test = base.extend<MyPageObjects>({
@@ -64,6 +66,10 @@ export const test = base.extend<MyPageObjects>({
   scrollbarsPage: async ({ page }, use) => {
     const scrollbarsPage = new ScrollbarsPage(page);
     await use(scrollbarsPage);
+  },
+  dynamicTablePage: async ({ page }, use) => {
+    const dynamicTablePage = new DynamicTablePage(page);
+    await use(dynamicTablePage);
   }
 });
 
