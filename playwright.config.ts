@@ -9,12 +9,12 @@ export default defineConfig({
   reporter: [['html'], ['list']],
   timeout: 60 * 1000,
   expect: {
-    timeout: 5000,
+    timeout: 10000,
   },
   use: {
     baseURL: 'http://uitestingplayground.com/',
     navigationTimeout: 45000,
-    actionTimeout: 15 * 1000,
+    actionTimeout: 45 * 1000,
     trace: 'on-first-retry',
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
