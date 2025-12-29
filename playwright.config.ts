@@ -7,14 +7,14 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html'], ['list']],
-  timeout: 60 * 1000,
+  timeout: 30 * 1000,
   expect: {
-    timeout: 10000,
+    timeout: 5000,
   },
   use: {
     baseURL: 'http://uitestingplayground.com/',
-    navigationTimeout: 45000,
-    actionTimeout: 45 * 1000,
+    navigationTimeout: 15000,
+    actionTimeout: 30 * 1000,
     trace: 'on-first-retry',
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
