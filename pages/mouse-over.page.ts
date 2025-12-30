@@ -24,7 +24,7 @@ export class MouseOverPage extends BasePage {
   }
 
   async clickLink(): Promise<void> {
-    await this.clickmeLink.hover();
+    await this.clickmeLink.hover({ force: true });
     await this.clickActiveLink.waitFor({ state: 'visible' });
     await this.clickActiveLink.click();
   }

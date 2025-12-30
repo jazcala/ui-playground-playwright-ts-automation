@@ -38,5 +38,4 @@ test.describe('Mouse Over Page Specs', () => {
     await mouseOverPage.clickLinkButton();
     await expect(mouseOverPage.linkButtonCount).toHaveText('1');
   });
-  
 });
