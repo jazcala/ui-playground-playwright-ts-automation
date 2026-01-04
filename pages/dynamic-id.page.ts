@@ -11,7 +11,7 @@ export class DynamicIdPage extends BasePage {
   constructor(page: Page) {
     super(page);
     this.title = page.getByRole('heading', { name: 'Dynamic ID' });
-    this.button = page.getByRole('button', { name: "Button with Dynamic ID" });
+    this.button = page.getByRole('button', { name: 'Button with Dynamic ID' });
   }
 
 }

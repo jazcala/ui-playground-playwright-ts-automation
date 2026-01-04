@@ -1,6 +1,6 @@
-import { Locator, Page } from "@playwright/test";
-import { BasePage } from "./base.page";
-import { URL_PATH_CONTSTANTS } from "../utils/test-constants";
+import { Locator, Page } from '@playwright/test';
+import { BasePage } from './base.page';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 
 export class HiddenLayersPage extends BasePage {
 

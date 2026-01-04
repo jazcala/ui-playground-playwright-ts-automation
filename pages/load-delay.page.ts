@@ -1,5 +1,5 @@
-import { BasePage } from "./base.page";
-import { URL_PATH_CONTSTANTS } from "../utils/test-constants";
+import { BasePage } from './base.page';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 import { Page, Locator } from '@playwright/test';
 
 export class LoadDelayPage extends BasePage {

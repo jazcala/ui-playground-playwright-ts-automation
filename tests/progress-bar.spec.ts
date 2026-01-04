@@ -46,7 +46,7 @@ test.describe('Progress Bar Page Specs', () => {
   test('should handle invalid stop sequence (Stop before Start)', async ({ progressBarPage }) => {
 
     await progressBarPage.stopButton.click();
-    await expect(progressBarPage.resultLabel).toHaveText("Result: n/a, duration: n/a");
+    await expect(progressBarPage.resultLabel).toHaveText('Result: n/a, duration: n/a');
 
   });
 });

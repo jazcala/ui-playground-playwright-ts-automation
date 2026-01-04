@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/base-test';
 import { BasePage } from '../pages/base.page';
 import { NAVIGATION_MAP } from '../utils/test-data';
 
-test.describe("Landing Page Specs", () => {
+test.describe('Landing Page Specs', () => {
 
   test.beforeEach(async ({ landingPage }) => {
     await landingPage.navigateTo();
