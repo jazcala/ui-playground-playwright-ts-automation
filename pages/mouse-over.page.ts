@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from "./base.page";
-import { URL_PATH_CONTSTANTS } from "../utils/test-constants";
+import { BasePage } from './base.page';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 
 export class MouseOverPage extends BasePage {
 
@@ -19,7 +19,7 @@ export class MouseOverPage extends BasePage {
     this.clickActiveLink = page.locator('a[title = "Active Link"]');
     this.clickmeCount = page.locator('#clickCount');
     this.linkButton = page.locator('a[title = "Link Button"]');
-    this.linkButtonCount = page.locator("#clickButtonCount");
+    this.linkButtonCount = page.locator('#clickButtonCount');
 
   }
 

@@ -1,96 +1,100 @@
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import checkFile from "eslint-plugin-check-file";
+import playwright from "eslint-plugin-playwright";
 
 export default [
   {
+    // --- SECTION 1: CORE LOGIC & NAMING ---
+    name: "project-x/typescript-core",
     files: ["**/*.ts"],
-
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         project: "./tsconfig.json",
       },
     },
-
     plugins: {
       "@typescript-eslint": tsPlugin,
       "check-file": checkFile,
+      playwright: playwright,
     },
-
     rules: {
-      // Force explicit return types
-      "@typescript-eslint/explicit-function-return-type": "error",
-
-      "padded-blocks": ["error", { classes: "always" }],
-
+      // --- 1. VISUAL STYLE & WHITESPACE ---
+      quotes: [
+        "error",
+        "single",
+        { avoidEscape: true, allowTemplateLiterals: true },
+      ],
+      semi: ["error", "always"],
+      "no-extra-semi": "error",
       "eol-last": ["error", "always"],
-
-      semi: ["error", "always"], // Forces an error if a semicolon is missing
-      "no-extra-semi": "error", // Prevents double semicolons (;;)
-
-      // Prevents more than one empty line in a row
       "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
-
-      // Forces an empty line between methods in your Page Objects
+      "padded-blocks": ["error", { classes: "always" }],
       "lines-between-class-members": [
         "error",
         "always",
         { exceptAfterSingleLine: true },
       ],
-
-      // Adds a line before 'return' statements for clarity
       "padding-line-between-statements": [
         "error",
         { blankLine: "always", prev: "*", next: "return" },
       ],
 
-      // Prevent the use of 'any'
+      // --- 2. TYPESCRIPT STRICTNESS ---
+      "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/no-explicit-any": "error",
 
-      // Force proper naming
+      // --- 3. NAMING CONVENTIONS ---
       "@typescript-eslint/naming-convention": [
         "error",
-        {
-          selector: "method",
-          format: ["camelCase"],
-        },
-        {
-          selector: "function",
-          format: ["camelCase"],
-        },
+        { selector: "method", format: ["camelCase"] },
+        { selector: "function", format: ["camelCase"] },
         {
           selector: ["class", "interface", "typeAlias"],
           format: ["PascalCase"],
         },
         {
           selector: "variable",
-          modifiers: ["const", "global"],
+          modifiers: ["const"],
           format: ["UPPER_CASE", "camelCase"],
         },
+        { selector: ["variable", "parameter"], format: ["camelCase"] },
         {
-          selector: ["variable", "parameter"],
+          selector: "variable",
+          modifiers: ["unused"],
           format: ["camelCase"],
+          leadingUnderscore: "allow",
         },
       ],
 
+      // --- 4. PLAYWRIGHT SPECIFIC RULES ---
+      "playwright/no-skipped-test": "warn",
+      "playwright/no-focused-test": "error",
+      "playwright/valid-expect": "error",
+      "playwright/no-wait-for-timeout": "error",
+
+      // --- 5. FILE SYSTEM ARCHITECTURE ---
       "check-file/filename-naming-convention": [
         "error",
-        {
-          // Ensures all TS files in these folders are kebab-case
-          "**/*.{ts,tsx}": "KEBAB_CASE",
-        },
-        {
-          ignoreMiddleExtensions: true,
-        },
+        { "**/*.{ts,tsx}": "KEBAB_CASE" },
+        { ignoreMiddleExtensions: true },
       ],
       "check-file/folder-naming-convention": [
         "error",
-        {
-          // Ensures folder names are kebab-case
-          "src/**/": "KEBAB_CASE",
-        },
+        { "**/*/": "KEBAB_CASE" },
       ],
     },
+  },
+  {
+    // --- SECTION 2: GLOBAL IGNORES ---
+    name: "project-x/global-ignores",
+    ignores: [
+      "test-results/",
+      "playwright-report/",
+      "dist/",
+      "node_modules/",
+      ".husky/",
+    ],
   },
 ];

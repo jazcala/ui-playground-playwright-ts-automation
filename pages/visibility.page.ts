@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
-import { BasePage } from "./base.page";
-import { URL_PATH_CONTSTANTS } from "../utils/test-constants";
+import { BasePage } from './base.page';
+import { URL_PATH_CONTSTANTS } from '../utils/test-constants';
 
 export class VisibilityPage extends BasePage {
 
@@ -19,15 +19,15 @@ export class VisibilityPage extends BasePage {
   constructor(page: Page) {
     super(page);
     this.title = page.getByRole('heading', { name: 'Visibility' });
-    this.hideButton = page.getByRole('button', { name: "Hide" });
-    this.removedButton = page.getByRole('button', { name: "Removed" });
-    this.zeroWidthButton = page.getByRole('button', { name: "Zero Width" });
-    this.overlappedButton = page.getByRole('button', { name: "Overlapped" });
+    this.hideButton = page.getByRole('button', { name: 'Hide' });
+    this.removedButton = page.getByRole('button', { name: 'Removed' });
+    this.zeroWidthButton = page.getByRole('button', { name: 'Zero Width' });
+    this.overlappedButton = page.getByRole('button', { name: 'Overlapped' });
     this.coverOverlappedButton = page.locator('#hidingLayer');
-    this.opacity0Button = page.getByRole('button', { name: "Opacity 0" });
-    this.visibilityHiddenButton = page.getByRole('button', { name: "Visibility Hidden" });
-    this.displayNoneButton = page.getByRole('button', { name: "Display None" });
-    this.offscreenButton = page.getByRole('button', { name: "Offscreen" });
+    this.opacity0Button = page.getByRole('button', { name: 'Opacity 0' });
+    this.visibilityHiddenButton = page.getByRole('button', { name: 'Visibility Hidden' });
+    this.displayNoneButton = page.getByRole('button', { name: 'Display None' });
+    this.offscreenButton = page.getByRole('button', { name: 'Offscreen' });
   }
 
   async isTopElementCovering(expectedId: string = 'hidingLayer'): Promise<boolean> {

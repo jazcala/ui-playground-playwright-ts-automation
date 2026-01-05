@@ -15,8 +15,8 @@ test.describe('Overlapped Elements Page Specs', () => {
   });
 
   test('fill the form with overlaps ', async ({ overlappedElementPage }) => {
-    const id: string = "333";
-    const name: string = "Susan";
+    const id: string = '333';
+    const name: string = 'Susan';
     await overlappedElementPage.fillForm(id, name);
     await expect.soft(overlappedElementPage.idField).toHaveValue(id);
     await expect.soft(overlappedElementPage.nameField).toHaveValue(name);

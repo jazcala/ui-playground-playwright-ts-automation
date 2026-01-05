@@ -12,7 +12,7 @@ test.describe('Text Input Page Specs', () => {
 
   test('verify button name is changed', async ({ textInputPage }) => {
 
-    let newName: string = "This is my new name";
+    let newName: string = 'This is my new name';
     await expect(textInputPage.input).toBeVisible();
     await textInputPage.setButtonNewName(newName);
     await expect(textInputPage.button).toHaveText(newName);

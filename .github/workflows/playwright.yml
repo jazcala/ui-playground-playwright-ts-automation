@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   test:
+    name: Playwright E2E Tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
