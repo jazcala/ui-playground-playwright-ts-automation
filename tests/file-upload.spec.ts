@@ -1,7 +1,24 @@
 import { test, expect } from '../fixtures/base-test';
 import path from 'path';
+import fs from 'fs';
 
 test.describe('File Upload Page Specs', () => {
+
+  const dataDir = path.resolve(__dirname, '../data');
+  const filePath = path.join(dataDir, 'test-file.txt');
+
+  test.beforeAll(async () => {
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, 'Hello! This file was created dynamically by the test suite.');
+  });
+
+  test.afterAll(async () => {
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
+  });
 
   test.beforeEach(async ({ fileUploadPage }) => {
     await fileUploadPage.navigateTo();
@@ -13,7 +30,6 @@ test.describe('File Upload Page Specs', () => {
 
   test('should upload a file and verify the success message', async ({ fileUploadPage }) => {
 
-    const filePath = path.resolve(__dirname, '../data/test-file.txt');
     await fileUploadPage.uploadFile(filePath);
     await expect(fileUploadPage.uploadStatus).toContainText('1 file(s) selected');
 
