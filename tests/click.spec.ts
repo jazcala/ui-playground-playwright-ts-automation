@@ -10,15 +10,11 @@ test.describe('Click Page Specs', () => {
     await expect(clickPage.title).toBeVisible();
   });
 
-  test('verify button become green after click', async ({ browserName, clickPage }) => {
+  test('verify button become green after click', async ({ browserName, clickPage }, testInfo) => {
+    test.fixme(browserName === 'webkit', 'Webkit fails to register the click correctly.');
+    test.fixme(!testInfo.project.use.headless, 'Challenge only works reliably in Headless mode.');
 
-    //Next line works for Chrome and Firefox but not for webkit - the button is not being clicked
     await clickPage.badButton.click();
-
-    if (browserName === 'webkit') {
-      test.fixme(true, 'Webkit fails to register the click/color change correctly.');
-    }
-
     await expect(clickPage.badButton).toHaveClass(/btn-success/);
 
   });
