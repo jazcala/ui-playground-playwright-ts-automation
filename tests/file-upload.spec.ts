@@ -4,8 +4,9 @@ import fs from 'fs';
 
 test.describe('File Upload Page Specs', () => {
 
+  const fileName = `test-file-${process.env.TEST_WORKER_INDEX || 0}.txt`;
   const dataDir = path.resolve(__dirname, '../data');
-  const filePath = path.join(dataDir, 'test-file.txt');
+  const filePath = path.join(dataDir, fileName);
 
   test.beforeAll(async () => {
     if (!fs.existsSync(dataDir)) {
